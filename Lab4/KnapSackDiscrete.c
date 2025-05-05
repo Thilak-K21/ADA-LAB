@@ -32,7 +32,7 @@ void knapsack(int n, int W, int wt[], int val[]) {
         if (res == F[i - 1][w])
             continue; // item i-1 not included
         else {
-            printf("%d ", i - 1); // item i-1 included
+            printf("%d ", i); // item i-1 included
             res -= val[i - 1];
             w -= wt[i - 1];
         }
@@ -41,10 +41,22 @@ void knapsack(int n, int W, int wt[], int val[]) {
 }
 
 int main() {
-    int n = 4; // number of items
-    int val[] = {60, 100, 120, 70}; // profits
-    int wt[] = {10, 20, 30, 15};    // weights
-    int W = 50; // knapsack capacity
+    int n, W;
+    printf("Enter the number of items: ");
+    scanf("%d", &n);
+
+    int val[n], wt[n];
+
+    printf("Enter the profits of the items: ");
+    for (int i = 0; i < n; i++)
+        scanf("%d", &val[i]);
+
+    printf("Enter the weights of the items: ");
+    for (int i = 0; i < n; i++)
+        scanf("%d", &wt[i]);
+
+    printf("Enter the knapsack capacity: ");
+    scanf("%d", &W);
 
     knapsack(n, W, wt, val);
 
